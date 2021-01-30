@@ -41,3 +41,4 @@ This project is a complete pipeline for deploying a Machine Learning Micro-Servi
 * Application main source code: `app.py`
 * Shell scripts for exeuting the applications: `*.sh`
 * Machine Learning Model in folder: `model_data`
+* Text files outputted from the project in folder: `output_txt_files`
