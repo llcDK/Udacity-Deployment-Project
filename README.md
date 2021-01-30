@@ -15,6 +15,12 @@ This project is a complete pipeline for deploying a Machine Learning Micro-Servi
 * Deploy the container using Kubernetes
 * Integrate the project with CircleCI
 
+### Project Scope
+
+* Pipeline: The pipeline sets up the environment, installs dependencies, lints all source files, and finally sdeploys the application in Kubernetes.
+* Use Jenkins to implement rolling deployment 
+* Use AWS Kubernetes as a Service to deploy the application 
+
 ---
 
 ## Setup the Environment
@@ -41,3 +47,4 @@ This project is a complete pipeline for deploying a Machine Learning Micro-Servi
 * Application main source code: `app.py`
 * Shell scripts for exeuting the applications: `*.sh`
 * Machine Learning Model in folder: `model_data`
+
