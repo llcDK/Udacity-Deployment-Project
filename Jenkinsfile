@@ -4,13 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/bin/bash
-                    pip3 install --upgrade pip &&\
-                        pip3 install -r requirements.txt
-                    # Install hadolint
-                    sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
-                    sudo chmod +x /bin/hadolint
-                    # Install pylint
-                    pip3 install pylint
+                    make setup
+                    make install
                 '''
             }
         }
