@@ -1,11 +1,12 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
-                sh 'make'
+                sh 'sudo yum -y install make'
                 sh '''
-                    make install
+                    sudo make install
                 '''
             }
         }
