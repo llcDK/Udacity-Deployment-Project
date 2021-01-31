@@ -48,3 +48,8 @@ This project is a complete pipeline for deploying a Machine Learning Micro-Servi
 * Shell scripts for exeuting the applications: `*.sh`
 * Machine Learning Model in folder: `model_data`
 
+## Jenkins Server Requirement
+
+* Need to install 'make' command
+* Need to install python3, pip3, python3-venv
+* Need to change the shell from 'dash' to 'bash' (if it is default 'dash')
