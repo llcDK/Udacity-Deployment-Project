@@ -3,9 +3,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "#!/bin/bash \n" + 
-                   "make setup \n" +
-                   "make install \n"
+                sh '''
+                    yum install python3-pip
+                    make setup
+                    make install
+                '''
             }
         }
 
