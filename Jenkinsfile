@@ -4,6 +4,7 @@ pipeline {
         stage('Lint') {
             steps {
                 sh '''#!/bin/bash
+                    source ~/.devops/bin/activate
                     hadolint Dockerfile
                     pylint --disable=R,C,W1203,W1309 app.py
                 '''
