@@ -3,10 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''#!/bin/bash
-                    make setup
-                    make install
-                '''
+                sh "#!/bin/bash \n" + 
+                   "make setup \n" +
+                   "make install \n"
             }
         }
 
