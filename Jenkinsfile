@@ -14,7 +14,8 @@ pipeline {
         stage('Lint') {
             steps {
                 sh '''#!/bin/bash
-                    echo 'Complete Lint!'
+                    source ~/.devops/bin/activate
+                    make lint
                 '''
             }
         }
