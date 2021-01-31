@@ -3,10 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'apt install make'
                 sh '''
-                            sudo make install
-                        '''
+                    make install
+                '''
             }
         }
 
