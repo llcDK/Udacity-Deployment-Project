@@ -1,12 +1,18 @@
 pipeline {
     agent any
     stages {
+        stage('Build') {
+            steps {
+                sh '''#!/bin/bash
+                    echo 'Complete Build stage!'
+                '''
+            }
+        }
+
         stage('Lint') {
             steps {
                 sh '''#!/bin/bash
-                    source ~/.devops/bin/activate
-                    hadolint Dockerfile
-                    pylint --disable=R,C,W1203,W1309 app.py
+                    echo 'Complete Lint!'
                 '''
             }
         }
@@ -20,7 +26,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''#!/bin/bash
-                    echo 'Deploy to AWS Kubernetes as Service'
+                    echo 'Deploy to AWS Kubernetes as Service!'
                 '''
             }
         }
