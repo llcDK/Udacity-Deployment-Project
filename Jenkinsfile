@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    make setup
+                    make setup &&\
                     make install
                 '''
             }
