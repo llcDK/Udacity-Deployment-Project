@@ -4,6 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                    #!/bin/bash
+                    make setup
                     make install
                 '''
             }
@@ -12,6 +14,7 @@ pipeline {
         stage('Lint') {
             steps {
                 sh '''
+                    #!/bin/bash
                     make lint
                 '''
             }
@@ -26,6 +29,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
+                    #!/bin/bash
                     echo 'Deploy to AWS Kubernetes as Service'
                 '''
             }
