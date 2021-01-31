@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'sudo yum -y install make'
+                sh 'yum -y install make'
                 sh '''
                     sudo make install
                 '''
