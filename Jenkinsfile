@@ -24,5 +24,13 @@ pipeline {
             }
         }
 
+        stage('Deploy') {
+            steps {
+                sh '''
+                    echo 'Deploy to AWS Kubernetes as Service'
+                '''
+            }
+        }
+
     }
 }
