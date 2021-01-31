@@ -10,9 +10,11 @@ pipeline {
             }
         }
 
-        stage('Lint HTML') {
+        stage('Lint') {
             steps {
-                sh 'tidy -q -e *.html'
+                sh '''
+                    make lint
+                '''
             }
         }
 
