@@ -4,7 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/bin/bash
-                    echo 'Complete Build stage!'
+                    python3 -m venv ~/.devops
+	                source ~/.devops/bin/activate
                 '''
             }
         }
