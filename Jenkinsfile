@@ -1,16 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                sh '''
-                    yum install python3-pip
-                    make setup
-                    make install
-                '''
-            }
-        }
-
         stage('Lint') {
             steps {
                 sh '''#!/bin/bash
