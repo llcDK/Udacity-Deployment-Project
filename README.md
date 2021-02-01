@@ -54,5 +54,5 @@ This project is a complete pipeline for deploying a Machine Learning Micro-Servi
 * Need to install 'make' command.
 * Need to install python3, pip3, python3-venv.
 * Need to install Docker, login with your own credentials, and modify the upload_docker.sh file coorespondingly.
-* Jenkins server needs to have sudo permission.
+* Jenkins server needs to have sudo permission (configure in `/etc/sudoers`).
 * Update AWS CLI to the latest version, login, and authenticate to Docker using `aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws`
