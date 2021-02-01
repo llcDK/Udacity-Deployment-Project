@@ -6,7 +6,8 @@
 # Step 1:
 # Create dockerpath
 # dockerpath=<your docker ID/path>
-dockerpath="llcdk/flasksklearn"
+# dockerpath="llcdk/flasksklearn"
+dockerpath="public.ecr.aws/m3h6r7n8/udacity/flasksklearn"
 
 # Step 2:  
 # Authenticate & tag
