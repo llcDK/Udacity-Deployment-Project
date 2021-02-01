@@ -23,6 +23,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/bin/bash
+                    source ~/.devops/bin/activate
+                    docker build --tag=flasksklearn .
+                    ./upload_docker.sh
                     echo 'Successfully build the Docker Container!'
                 '''
             }
