@@ -22,13 +22,5 @@
     {
         "ParameterKey": "PrivateSubnet2CIDR",
         "ParameterValue": "10.0.3.0/24"
-    },
-    {
-        "ParameterKey": "MyInstanceAMI",
-        "ParameterValue": "ami-0a634ae95e11c6f91"
-    },
-    {
-        "ParameterKey": "MyInstanceType",
-        "ParameterValue": "t2.medium"
     }
 ]
