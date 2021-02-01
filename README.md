@@ -18,8 +18,9 @@ This project is a complete pipeline for deploying a Machine Learning Micro-Servi
 ### Project Scope
 
 * Pipeline: The pipeline sets up the environment, installs dependencies, lints all source files, and finally deploys the application in Kubernetes.
-* Use Jenkins to implement rolling deployment 
-* Use AWS Kubernetes as a Service to deploy the application 
+* Use Jenkins for CI/CD pipeline: setup environment, lint source code, build the docker container and upload to the image registry, and finally deploy to Kubernetes.
+* Use AWS ECR for image registry.
+* Use AWS Kubernetes as a Service to deploy the application.
 
 ---
 
