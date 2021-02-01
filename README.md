@@ -54,3 +54,4 @@ This project is a complete pipeline for deploying a Machine Learning Micro-Servi
 * Need to install 'make' command.
 * Need to install python3, pip3, python3-venv.
 * Need to install Docker, login with your own credentials, and modify the upload_docker.sh file coorespondingly.
+* Jenkins server needs to have sudo permission.
