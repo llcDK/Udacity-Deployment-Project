@@ -1,5 +1,5 @@
 Description: >
-  Udacity Project for deploying an application to Cloud using CloudFormation.
+  Udacity Capstone Project for deploying the flasklearn application to Cloud using CloudFormation.
 
 Parameters:
   EnvironmentName:
@@ -302,7 +302,7 @@ Resources:
       BlockDeviceMappings:
       - DeviceName: "/dev/sdk"
         Ebs:
-          VolumeSize: '10'  
+          VolumeSize: '20'  
 
   WebAppGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
@@ -312,7 +312,7 @@ Resources:
       - Ref: PrivateSubnet2
       LaunchConfigurationName:
         Ref: WebAppLaunchConfig
-      MinSize: '3'
+      MinSize: '1'
       MaxSize: '5'
       TargetGroupARNs:
       - Ref: WebAppTargetGroup
