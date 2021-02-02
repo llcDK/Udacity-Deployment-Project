@@ -1,0 +1,29 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: Udacity-Project-Cluster
+  region: us-west-2
+
+vpc:
+  id: vpc-02fd5b5af5b1293d3
+  cidr: "192.168.0.0/16"
+  subnets:
+    public:
+      us-west-2a:
+        id: subnet-05963323bd88b7f58
+      us-west-2b:
+        id: subnet-033c7ec711ec8c402
+    private:
+      us-west-2a:
+        id: subnet-010567ac667c89709
+      us-west-2b:
+        id: subnet-05d2f281d8f65f6dc
+
+nodeGroups:
+  - name: EKS-public-workers
+    instanceType: t2.medium
+    desiredCapacity: 2
+  - name: EKS-private-workers
+    instanceType: t2.medium
+    desiredCapacity: 1
+    privateNetworking: true
