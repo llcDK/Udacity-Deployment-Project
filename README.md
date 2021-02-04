@@ -3,24 +3,14 @@
 
 ## Project Overview
 
-This project is a complete pipeline for deploying a Machine Learning Micro-Service. With a pre-trained `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, this project automatically setups, containerizes, and then deploys the application to Kubernetes. To achieve this goal, this project completes the following tasks:
-
-### Project Tasks
-
-* Test the project code using linting
-* Complete a Dockerfile to containerize the application
-* Deploy the containerized application using Docker
-* Use log statements in the source code to report logs for this application
-* Configure Kubernetes and create a Kubernetes cluster
-* Deploy the container using Kubernetes
-* Integrate the project with CircleCI
+This project is a complete pipeline for CI/CD a Machine Learning Micro-Service. With a pre-trained `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, this project automatically setups, containerizes, builds, uploads and then deploys the application to a Kubernetes cluster. To achieve this goal, this project has the following scope:
 
 ### Project Scope
 
-* Pipeline: The pipeline sets up the environment, installs dependencies, lints all source files, and finally deploys the application in Kubernetes.
+* Pipeline: The pipeline sets up the environment, installs dependencies, lints all source files, builds and uploads the docker image to AWS ECR, and finally deploys the application in Kubernetes.
 * Use Jenkins for CI/CD pipeline: setup environment, lint source code, build the docker container and upload to the image registry, and finally deploy to Kubernetes.
 * Use AWS ECR for image registry.
-* Use AWS Kubernetes as a Service to deploy the application.
+* Use AWS Kubernetes as a Service (EKS) to deploy the application.
 
 ---
 
@@ -37,8 +27,8 @@ This project is a complete pipeline for deploying a Machine Learning Micro-Servi
 
 ### Kubernetes Steps
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
+* Setup and Configure Docker
+* Setup and Configure Kubernetes on EKS using IaC (folder infrastructure, folder cluster)
 * Create Flask app in Container
 * Run via kubectl
 
