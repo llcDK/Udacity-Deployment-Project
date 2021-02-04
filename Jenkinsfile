@@ -6,7 +6,7 @@ pipeline {
                 sh '''#!/bin/bash
                     python3 -m venv ~/.devops
 	                source ~/.devops/bin/activate
-                    make install
+                    make install 
                 '''
             }
         }
@@ -35,6 +35,7 @@ pipeline {
             steps {
                 sh '''#!/bin/bash
                     source ~/.devops/bin/activate
+                    sudo pip3 install eks-rolling-update
                     python3 eks-rolling-update.py -c Udacity-Project-Cluster
                     echo 'Deploy to AWS Kubernetes as Service!'
                 '''
