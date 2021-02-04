@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This file tags and uploads an image to Docker Hub
+# This file tags and uploads an image to AWS ECR
 
 # Assumes that an image is built via `run_docker.sh`
 
