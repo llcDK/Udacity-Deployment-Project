@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udacity-project-server
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flasklearn
+  template:
+    metadata:
+      labels:
+        app: flasklearn
+    spec:
+      containers:
+        - name: back-end
+          image: public.ecr.aws/m3h6r7n8/udacity:latest
+          ports:
+            - containerPort: 80
