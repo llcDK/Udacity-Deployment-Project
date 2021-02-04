@@ -34,6 +34,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''#!/bin/bash
+                    source ~/.devops/bin/activate
+                    python3 eks-rolling-update.py -c Udacity-Project-Cluster
                     echo 'Deploy to AWS Kubernetes as Service!'
                 '''
             }
