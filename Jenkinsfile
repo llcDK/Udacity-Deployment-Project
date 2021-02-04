@@ -34,11 +34,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''#!/bin/bash
-                    python3 eks-rolling-update.py -c Udacity-Project-Cluster
+                    kubectl get pods
+                    kubectl set image deployment udacity-project-server back-end=public.ecr.aws/m3h6r7n8/udacity:latest --record=true
+                    kubectl get pods
                     echo 'Deploy to AWS Kubernetes as Service!'
                 '''
             }
         }
-
     }
 }
