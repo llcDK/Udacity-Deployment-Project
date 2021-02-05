@@ -33,10 +33,11 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                withEnv(["KUBECONFIG=/home/ec2-user/.kube/dev-config","IMAGE=public.ecr.aws/m3h6r7n8/udacity:latest"]){
+                withKubeConfig(
+                    [credentialsId: 'kubeConfig', serverUrl: 'https://B48B3355DD60FEEFFA39CEA0FEBF137D.gr7.us-west-2.eks.amazonaws.com']
+                ){
                     sh '''
-                        cd ~
-                        ./kubectl get pods -o wide
+                        kubectl get pods -o wide
                     '''
                 }
             }
