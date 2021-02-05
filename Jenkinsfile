@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 withKubeConfig(
-                    [credentialsId: 'kubeConfigFile', serverUrl: 'https://B48B3355DD60FEEFFA39CEA0FEBF137D.gr7.us-west-2.eks.amazonaws.com']
+                    [credentialsId: 'aws_id', serverUrl: 'https://B48B3355DD60FEEFFA39CEA0FEBF137D.gr7.us-west-2.eks.amazonaws.com']
                 ){
                     sh '''
                         echo $KUBECONFIG
