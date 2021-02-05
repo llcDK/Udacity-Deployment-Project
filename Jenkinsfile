@@ -33,11 +33,12 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                withKubeConfig(
-                    [credentialsId: 'kubeconfigFile', serverUrl: 'https://B48B3355DD60FEEFFA39CEA0FEBF137D.gr7.us-west-2.eks.amazonaws.com']
+                withAWS(
+                    region:'us-west-2', 
+                    credentials: 'aws_id',
+                    endpointUrl: 'https://B48B3355DD60FEEFFA39CEA0FEBF137D.gr7.us-west-2.eks.amazonaws.com'
                 ){
                     sh '''
-                        echo $KUBECONFIG
                         curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
                         sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
                         /usr/local/bin/kubectl version --client
