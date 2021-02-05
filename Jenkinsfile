@@ -60,7 +60,6 @@ pipeline {
                 ){
                     sh '''
                         /usr/local/bin/kubectl apply -f blue_deployment/deployment.yml
-                        /usr/local/bin/kubectl apply -f blue_deployment/service.yml
                         /usr/local/bin/kubectl get pods
                     '''
                 }
@@ -96,7 +95,6 @@ pipeline {
                 ){
                     sh '''
                         /usr/local/bin/kubectl apply -f green_deployment/deployment.yml
-                        /usr/local/bin/kubectl apply -f green_deployment/service.yml
                         /usr/local/bin/kubectl get pods
                     '''
                 }
