@@ -61,6 +61,7 @@ pipeline {
                     sh '''
                         /usr/local/bin/kubectl apply -f blue_deployment/deployment.yml
                         /usr/local/bin/kubectl apply -f blue_deployment/service.yml
+                        /usr/local/bin/kubectl get pods
                     '''
                 }
             }
@@ -77,7 +78,9 @@ pipeline {
                     sh '''
                         echo 'Redirect service to blue container'
                         /usr/local/bin/kubectl rollout status deployment blue-udacity-project-server
+                        /usr/local/bin/kubectl get pods
                         /usr/local/bin/kubectl delete deployment green-udacity-project-server
+                        /usr/local/bin/kubectl get pods
                     '''
                 }
             }
@@ -94,6 +97,7 @@ pipeline {
                     sh '''
                         /usr/local/bin/kubectl apply -f green_deployment/deployment.yml
                         /usr/local/bin/kubectl apply -f green_deployment/service.yml
+                        /usr/local/bin/kubectl get pods
                     '''
                 }
             }
@@ -110,7 +114,9 @@ pipeline {
                     sh '''
                         echo 'Redirect service to green container'
                         /usr/local/bin/kubectl rollout status deployment green-udacity-project-server
+                        /usr/local/bin/kubectl get pods
                         /usr/local/bin/kubectl delete deployment blue-udacity-project-server
+                        /usr/local/bin/kubectl get pods
                     '''
                 }
             }
