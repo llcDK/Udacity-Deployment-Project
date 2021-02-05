@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Create the kubeconfig file') {
             steps {
                 withAWS(
                     region:'us-west-2', 
@@ -52,36 +52,66 @@ pipeline {
         stage('Deploy blue container') {
             when { branch 'blue'}
             steps {
-                sh '''
-                    echo 'Deploy Blue Container'
-                '''
+                withAWS(
+                    region:'us-west-2', 
+                    credentials: 'aws_id',
+                    endpointUrl: 'https://B48B3355DD60FEEFFA39CEA0FEBF137D.gr7.us-west-2.eks.amazonaws.com'
+                ){
+                    sh '''
+                        /usr/local/bin/kubectl apply -f blue_deployment/deployment.yml
+                        /usr/local/bin/kubectl apply -f blue_deployment/service.yml
+                    '''
+                }
             }
         }
 
         stage('Redirect service to blue container') {
             when { branch 'blue'}
             steps {
-                sh '''
-                    echo 'Redirect service to blue container'
-                '''
+                withAWS(
+                    region:'us-west-2', 
+                    credentials: 'aws_id',
+                    endpointUrl: 'https://B48B3355DD60FEEFFA39CEA0FEBF137D.gr7.us-west-2.eks.amazonaws.com'
+                ){
+                    sh '''
+                        echo 'Redirect service to blue container'
+                        /usr/local/bin/kubectl rollout status blue-udacity-project-server
+                        /usr/local/bin/kubectl delete deployment green-udacity-project-server
+                    '''
+                }
             }
         }
 
         stage('Deploy green container') {
             when { branch 'green'}
             steps {
-                sh '''
-                    echo 'Deploy Green Container'
-                '''
+                withAWS(
+                    region:'us-west-2', 
+                    credentials: 'aws_id',
+                    endpointUrl: 'https://B48B3355DD60FEEFFA39CEA0FEBF137D.gr7.us-west-2.eks.amazonaws.com'
+                ){
+                    sh '''
+                        /usr/local/bin/kubectl apply -f green_deployment/deployment.yml
+                        /usr/local/bin/kubectl apply -f green_deployment/service.yml
+                    '''
+                }
             }
         }
 
         stage('Redirect service to green container') {
             when { branch 'green'}
             steps {
-                sh '''
-                    echo 'Redirect service to green container'
-                '''
+                withAWS(
+                    region:'us-west-2', 
+                    credentials: 'aws_id',
+                    endpointUrl: 'https://B48B3355DD60FEEFFA39CEA0FEBF137D.gr7.us-west-2.eks.amazonaws.com'
+                ){
+                    sh '''
+                        echo 'Redirect service to green container'
+                        /usr/local/bin/kubectl rollout status green-udacity-project-server
+                        /usr/local/bin/kubectl delete deployment blue-udacity-project-server
+                    '''
+                }
             }
         }
     }
