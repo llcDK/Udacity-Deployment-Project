@@ -43,6 +43,7 @@ pipeline {
                         sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
                         /usr/local/bin/kubectl version --client
                         aws eks --region us-west-2 update-kubeconfig --name Udacity-Project-Cluster
+                        /usr/local/bin/kubectl apply -f cluster/service.yml
                         /usr/local/bin/kubectl get pods -o wide
                     '''
                 }
