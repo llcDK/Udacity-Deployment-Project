@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: green-udacity-project-server
   namespace: default
-  app.kubernetes.io/instance: Green-Server
 spec:
   replicas: 2
   selector:
