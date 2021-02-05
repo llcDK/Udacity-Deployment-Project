@@ -35,7 +35,7 @@ pipeline {
             steps {
                 withEnv(["KUBECONFIG=/home/ec2-user/.kube/dev-config","IMAGE=public.ecr.aws/m3h6r7n8/udacity:latest"]){
                     sh '''
-                        kubectl get pods -o wide
+                        $HOME/kubectl get pods -o wide
                     '''
                 }
             }
