@@ -33,9 +33,39 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh '''#!/bin/bash
-                    echo 'Deploy to AWS Kubernetes as Service!'
-                '''
+                withEnv(["KUBECONFIG=/home/ec2-user/.kube/dev-config","IMAGE=public.ecr.aws/m3h6r7n8/udacity:latest"]){
+                    sh '''
+                        kubectl get pods -o wide
+                    '''
+                }
+            }
+        }
+
+        stage('Deploy blue container') {
+            when { branch 'blue'}
+            steps {
+
+            }
+        }
+
+        stage('Redirect service to blue container') {
+            when { branch 'blue'}
+            steps {
+                
+            }
+        }
+
+        stage('Deploy green container') {
+            when { branch 'green'}
+            steps {
+                
+            }
+        }
+
+        stage('Redirect service to green container') {
+            when { branch 'green'}
+            steps {
+                
             }
         }
     }
