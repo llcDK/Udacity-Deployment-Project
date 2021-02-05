@@ -44,28 +44,36 @@ pipeline {
         stage('Deploy blue container') {
             when { branch 'blue'}
             steps {
-
+                sh '''
+                    echo 'Deploy Blue Container'
+                '''
             }
         }
 
         stage('Redirect service to blue container') {
             when { branch 'blue'}
             steps {
-                
+                sh '''
+                    echo 'Redirect service to blue container'
+                '''
             }
         }
 
         stage('Deploy green container') {
             when { branch 'green'}
             steps {
-                
+                sh '''
+                    echo 'Deploy Green Container'
+                '''
             }
         }
 
         stage('Redirect service to green container') {
             when { branch 'green'}
             steps {
-                
+                sh '''
+                    echo 'Redirect service to green container'
+                '''
             }
         }
     }
