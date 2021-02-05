@@ -37,6 +37,7 @@ pipeline {
                     [credentialsId: 'kubeConfig', serverUrl: 'https://B48B3355DD60FEEFFA39CEA0FEBF137D.gr7.us-west-2.eks.amazonaws.com']
                 ){
                     sh '''
+                        echo $KUBECONFIG
                         kubectl get pods -o wide
                     '''
                 }
