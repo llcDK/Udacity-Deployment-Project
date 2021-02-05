@@ -42,7 +42,7 @@ pipeline {
                         curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
                         sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
                         /usr/local/bin/kubectl version --client
-
+                        aws eks --region us-west-2 update-kubeconfig --name Udacity-Project-Cluster
                         /usr/local/bin/kubectl get pods -o wide
                     '''
                 }
