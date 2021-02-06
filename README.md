@@ -58,3 +58,5 @@ This project is a complete pipeline for CI/CD a Machine Learning Micro-Service. 
 
 ## Blue / Green Deployment
 
+* The Blue / Green Deployment is done in a Pod level, rather than EC2 instance level. This is preferable for deploying my specific lightweight API. 
+* Terminating and Starting pods, as dsiplayed in the screenshots, is essentially equivelant as terminating and starting EC2 instance, but just faster.
