@@ -39,6 +39,12 @@ This project is a complete pipeline for CI/CD a Machine Learning Micro-Service. 
 * Shell scripts for exeuting the applications: `*.sh`
 * Machine Learning Model in folder: `model_data`
 
+## Deploy Cluster with Cloudformation
+
+* The VPC is created using Cloudformation. Folder `infrastructure` contains the yaml file for the creation. To creeate the VPC, use `./create.sh flasklearnproject-VPC infra.yml infra-params.json`
+* The EKS Cluster is created using `cluster/cluster.yml`, with command `eksctl create cluster -f cluster.yml --kubeconfig=$HOME\.kube\config`.
+
+
 ## Jenkins Server Requirement
 
 * Need to install 'git'.
@@ -49,3 +55,6 @@ This project is a complete pipeline for CI/CD a Machine Learning Micro-Service. 
 * Jenkins server needs to have sudo permission (configure in `/etc/sudoers`).
 * Update AWS CLI to the latest version, login, and authenticate to Docker using `aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws`
 * Install kubectl, and eksctl.
+
+## Blue / Green Deployment
+
